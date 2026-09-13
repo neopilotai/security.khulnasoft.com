@@ -5,25 +5,25 @@
 
 /* English: Theme tokens (light + dark) compatible with tailwind.config color vars. */
 :root {
-  --background: 0 0% 100%;
-  --foreground: 224 71.4% 4.1%;
-  --card: 0 0% 100%;
-  --card-foreground: 224 71.4% 4.1%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 224 71.4% 4.1%;
-  --primary: 168 84% 37%; /* English: emerald-ish accent */
-  --primary-foreground: 210 40% 98%;
-  --secondary: 220 14.3% 95.9%;
-  --secondary-foreground: 220 13% 18%;
-  --muted: 220 14.3% 95.9%;
-  --muted-foreground: 220 8.9% 46.1%;
-  --accent: 210 40% 96.1%;
-  --accent-foreground: 222.2 47.4% 11.2%;
-  --destructive: 0 90% 60%;
+  --background: 222 47% 6%;
+  --foreground: 210 40% 98%;
+  --card: 222 44% 9%;
+  --card-foreground: 210 40% 98%;
+  --popover: 222 44% 9%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 196 92% 60%;
+  --primary-foreground: 222 47% 6%;
+  --secondary: 217 33% 17%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 217 33% 14%;
+  --muted-foreground: 215 20% 60%;
+  --accent: 217 33% 17%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 84% 60%;
   --destructive-foreground: 210 40% 98%;
-  --border: 220 13% 91%;
-  --input: 220 13% 91%;
-  --ring: 168 84% 37%;
+  --border: 217 33% 18%;
+  --input: 217 33% 18%;
+  --ring: 196 92% 60%;
   --radius: 0.5rem;
 
   --chart-1: 12 76% 61%;
@@ -44,25 +44,25 @@
 }
 
 .dark {
-  --background: 224 71.4% 4.1%;
-  --foreground: 210 20% 98%;
-  --card: 224 71.4% 4.1%;
-  --card-foreground: 210 20% 98%;
-  --popover: 224 71.4% 4.1%;
-  --popover-foreground: 210 20% 98%;
-  --primary: 168 84% 37%;
-  --primary-foreground: 210 40% 98%;
-  --secondary: 215 27.9% 16.9%;
-  --secondary-foreground: 210 20% 98%;
-  --muted: 215 27.9% 16.9%;
-  --muted-foreground: 217.9 10.6% 64.9%;
-  --accent: 215 27.9% 16.9%;
-  --accent-foreground: 210 20% 98%;
-  --destructive: 0 62.8% 30.6%;
+  --background: 222 47% 6%;
+  --foreground: 210 40% 98%;
+  --card: 222 44% 9%;
+  --card-foreground: 210 40% 98%;
+  --popover: 222 44% 9%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 196 92% 60%;
+  --primary-foreground: 222 47% 6%;
+  --secondary: 217 33% 17%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 217 33% 14%;
+  --muted-foreground: 215 20% 60%;
+  --accent: 217 33% 17%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 84% 60%;
   --destructive-foreground: 210 40% 98%;
-  --border: 215 27.9% 16.9%;
-  --input: 215 27.9% 16.9%;
-  --ring: 168 84% 37%;
+  --border: 217 33% 18%;
+  --input: 217 33% 18%;
+  --ring: 196 92% 60%;
 
   --chart-1: 220 70% 50%;
   --chart-2: 160 60% 45%;
@@ -165,6 +165,12 @@
 }
 
 /* English: Smooth transitions for all interactive elements */
+.intelligence-grid {
+  background-image: linear-gradient(rgba(148, 163, 184, 0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: linear-gradient(to bottom, black, transparent 82%);
+}
+
 @layer components {
   .transition-smooth {
     @apply transition-all duration-300 ease-in-out;

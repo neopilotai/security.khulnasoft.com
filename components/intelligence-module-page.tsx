@@ -1,0 +1,28 @@
+import Link from "next/link"
+import { Activity, ArrowLeft, ArrowUpRight, BarChart3, CheckCircle2, Filter, Layers3, Search, ShieldAlert } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+
+type ModuleItem = { id: string; title: string; detail: string; meta: string; severity: string }
+
+type Props = { eyebrow: string; title: string; description: string; stats: { label: string; value: string }[]; items: ModuleItem[]; actionLabel?: string; actionHref?: string }
+
+export default function IntelligenceModulePage({ eyebrow, title, description, stats, items, actionLabel = "Open explorer", actionHref = "/resources" }: Props) {
+  return (
+    <main className="min-h-screen bg-[#030712] text-slate-100">
+      <div className="mx-auto max-w-[1440px] px-4 pb-20 sm:px-6 lg:px-8">
+        <section className="relative overflow-hidden border-x border-white/[0.06] px-4 pb-10 pt-10 sm:px-8 lg:px-12">
+          <div className="pointer-events-none absolute inset-0 intelligence-grid opacity-40" />
+          <div className="relative">
+            <Link href="/" className="mb-8 inline-flex items-center gap-2 text-xs text-slate-600 transition hover:text-slate-300"><ArrowLeft className="size-3" /> Back to intelligence OS</Link>
+            <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end"><div><p className="text-xs font-medium uppercase tracking-[0.2em] text-cyan-300/70">{eyebrow}</p><h1 className="mt-3 text-4xl font-semibold tracking-[-0.04em] text-white sm:text-5xl">{title}</h1><p className="mt-4 max-w-2xl text-base leading-7 text-slate-500">{description}</p></div><Button asChild className="w-fit bg-cyan-300 text-slate-950 hover:bg-cyan-200"><Link href={actionHref}>{actionLabel}<ArrowUpRight className="ml-2 size-4" /></Link></Button></div>
+          </div>
+        </section>
+        <section className="grid gap-px overflow-hidden rounded-xl border border-white/[0.08] bg-white/[0.08] sm:grid-cols-2 lg:grid-cols-4">{stats.map((stat) => <div key={stat.label} className="bg-slate-950/90 p-5"><p className="text-xs text-slate-500">{stat.label}</p><p className="mt-2 text-2xl font-semibold text-white">{stat.value}</p><div className="mt-3 h-1 rounded-full bg-white/5"><div className="h-full w-2/3 rounded-full bg-cyan-300" /></div></div>)}</section>
+        <section className="mt-8 grid gap-5 lg:grid-cols-[1fr_300px]"><Card className="border-white/[0.08] bg-slate-950/70"><CardHeader className="gap-5 border-b border-white/[0.06]"><div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center"><div><CardTitle className="text-base text-white">Latest intelligence</CardTitle><CardDescription className="text-slate-500">Prioritized signals from the intelligence graph.</CardDescription></div><div className="flex gap-2"><Button variant="outline" size="sm" className="border-white/10 text-slate-400"><Filter className="mr-2 size-4" />Filters</Button><Button variant="outline" size="sm" className="border-white/10 text-slate-400"><BarChart3 className="mr-2 size-4" />Analytics</Button></div></div><div className="relative"><Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-slate-600" /><Input placeholder="Search this module..." className="border-white/10 bg-slate-900 pl-9 text-slate-100 placeholder:text-slate-600" /></div></CardHeader><CardContent className="p-0">{items.map((item) => <div key={item.id} className="group flex flex-col gap-3 border-b border-white/[0.06] p-5 transition hover:bg-white/[0.02] sm:flex-row sm:items-center"><div className="flex min-w-0 flex-1 items-start gap-3"><div className="mt-1 rounded-md border border-cyan-300/10 bg-cyan-300/5 p-2 text-cyan-300"><Layers3 className="size-4" /></div><div className="min-w-0"><p className="text-xs font-medium text-cyan-300/80">{item.id}</p><h3 className="mt-1 truncate text-sm font-medium text-slate-200">{item.title}</h3><p className="mt-1 text-xs leading-5 text-slate-600">{item.detail}</p></div></div><div className="flex items-center justify-between gap-5 sm:justify-end"><Badge variant="outline" className="border-orange-300/20 bg-orange-300/5 text-orange-200">{item.severity}</Badge><span className="text-xs text-slate-600">{item.meta}</span><ArrowUpRight className="size-4 text-slate-700 transition group-hover:text-cyan-300" /></div></div>)}</CardContent></Card><div className="flex flex-col gap-5"><Card className="border-cyan-300/15 bg-cyan-300/5"><CardHeader><CardTitle className="flex items-center gap-2 text-base text-white"><Activity className="size-4 text-cyan-300" />Signal health</CardTitle></CardHeader><CardContent><p className="text-3xl font-semibold text-white">98.4%</p><p className="mt-1 text-xs text-slate-500">Ingestion coverage across monitored sources</p><div className="mt-5 flex items-center gap-2 text-xs text-emerald-300"><CheckCircle2 className="size-4" /> All systems operational</div></CardContent></Card><Card className="border-white/[0.08] bg-slate-950/70"><CardHeader><CardTitle className="flex items-center gap-2 text-base text-white"><ShieldAlert className="size-4 text-orange-200" />Risk posture</CardTitle></CardHeader><CardContent><p className="text-sm leading-6 text-slate-500">Prioritize critical and high-confidence signals before expanding into long-tail noise.</p><Link href="/taxonomy-explorer" className="mt-4 inline-flex items-center gap-1 text-xs text-cyan-200">Map safeguards <ArrowUpRight className="size-3" /></Link></CardContent></Card></div></section>
+      </div>
+    </main>
+  )
+}
