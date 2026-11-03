@@ -9,9 +9,9 @@ const inter = Inter({ subsets: ["latin"] })
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" })
 
 export const metadata = {
-  title: "KhulnaSoft Security Database",
-  description: "A comprehensive database of security vulnerabilities across multiple platforms",
-    generator: 'v0.dev'
+  title: "KhulnaSoft Security Intelligence OS",
+  description: "Live intelligence for vulnerabilities, malware, exploits, and open-source supply chain risk.",
+  generator: "v0.dev",
 }
 
 export default function RootLayout({
